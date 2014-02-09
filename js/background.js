@@ -42,6 +42,12 @@ chrome.contextMenus.create({
     }
 });
 
+chrome.runtime.onMessageExternal.addListener(
+    function(request, sender, sendResponse) {
+        console.log('request ', request);
+        console.log('sender ', sender);
+    });
+
 function enableDisableRender() {
     // Save the status of the extension
     chrome.storage.local.set({'ENABLE_RENDER':enableRender});

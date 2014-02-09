@@ -1,0 +1,28 @@
+<html>
+<div id="content">
+</div>
+<script type="text/javascript">
+
+    var asciidocContent =
+            "= Hello, AsciiDoc!\nDoc Writer <doc@example.com>\n\n" +
+                    "An introduction to http://asciidoc.org[AsciiDoc].\n\n" +
+                    "== First Section\n\n" +
+                    " * item 1\n" +
+                    " * item 2\n\n" +
+                    "[source,ruby]\n" +
+                    "puts \"Hello, World!\"";
+
+    // The ID of the extension we want to talk to.
+    var editorExtensionId = "pbneocaokccnppdmiefjegepplmcjcoa";
+
+    // Make a simple request:
+    chrome.runtime.sendMessage(editorExtensionId, {asciidocContent: asciidocContent},
+            function (response) {
+                if (!response.success) {
+                    console.error(response);
+                }
+            });
+
+</script>
+</body>
+</html>
