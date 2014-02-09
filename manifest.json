@@ -78,6 +78,6 @@
         ]
     },
     "externally_connectable": {
-        "matches": ["https://rawgithub.com/asciidoctor/asciidoctor-chrome-extension/master/html/web.html"]
+        "matches": ["https://rawgithub.com/asciidoctor/asciidoctor-chrome-extension/message-from-webpages/html/web.html"]
     }
 }
