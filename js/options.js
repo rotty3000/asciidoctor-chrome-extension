@@ -9,6 +9,9 @@ function save_options() {
     var selectTheme = document.getElementById("selectTheme");
     localStorage["THEME"] = selectTheme.value;
 
+    var inputCustomJS = document.getElementById("inputCustomJS");
+    localStorage["CUSTOM_JS"] = inputCustomJS.value;
+
     // Update status to let user know options were saved.
     var alert = '<div class="alert alert-success alert-dismissable fade in"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><b>{{message}}</b></div>';
     var html = alert.replace("{{message}}", "Options saved!");
@@ -31,6 +34,12 @@ function restore_options() {
     var theme = localStorage["THEME"] || 'asciidoctor';
     var selectTheme = document.getElementById("selectTheme");
     selectTheme.value = theme;
+
+    var customJS = localStorage["CUSTOM_JS"];
+    if (customJS) {
+        var inputCustomJS = document.getElementById("inputCustomJS");
+        inputCustomJS.value = customJS;
+    }
 }
 
 document.addEventListener('DOMContentLoaded', restore_options);

@@ -63,6 +63,7 @@ function enableDisableRender() {
 function refreshOptions() {
     chrome.storage.local.set({
         'CUSTOM_ATTRIBUTES': localStorage['CUSTOM_ATTRIBUTES'],
+        'CUSTOM_JS': localStorage['CUSTOM_JS'],
         'SAFE_MODE': localStorage['SAFE_MODE'],
         'THEME': localStorage['THEME']
     });

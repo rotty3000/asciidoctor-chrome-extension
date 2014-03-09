@@ -27,6 +27,7 @@
             if (enabled) {
                 appendStyles();
                 appendHighlightJsScript();
+                appendCustomJsScript();
                 render(data.responseText);
             }
             startAutoReload();

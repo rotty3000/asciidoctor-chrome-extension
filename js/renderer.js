@@ -1,4 +1,5 @@
 var CUSTOM_ATTRIBUTES_KEY = 'CUSTOM_ATTRIBUTES';
+var CUSTOM_JS_KEY = 'CUSTOM_JS';
 var SAFE_MODE_KEY = 'SAFE_MODE';
 var LIVERELOADJS_DETECTED_KEY = 'LIVERELOADJS_DETECTED';
 var LIVERELOADJS_FILENAME = 'livereload.js';
@@ -105,6 +106,21 @@ function appendFontAwesomeStyle() {
         fontAwesomeLink.href = chrome.extension.getURL('css/font-awesome.min.css');
         document.head.appendChild(fontAwesomeLink);
     }
+}
+
+/**
+ * Append the custom javascript if one is specified
+ */
+function appendCustomJsScript() {
+    chrome.storage.local.get(CUSTOM_JS_KEY, function (settings) {
+        var customJS = settings[CUSTOM_JS_KEY];
+        if (customJS) {
+            var customJsScript = document.createElement('script');
+            customJsScript.type = 'text/javascript';
+            customJsScript.src = chrome.extension.getURL('js/' + customJS);
+            document.head.appendChild(customJsScript);
+        }
+    });
 }
 
 /**
