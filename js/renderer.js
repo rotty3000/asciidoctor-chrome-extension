@@ -144,6 +144,11 @@ function appendStyles() {
         themeLink.id = 'asciidoctor-style';
         themeLink.href = chrome.extension.getURL('css/themes/' + theme + '.css');
         document.head.appendChild(themeLink);
+
+        var themeScript = document.createElement('script');
+        themeScript.type = 'text/javascript';
+        themeScript.src = chrome.extension.getURL('js/' + theme + '.js');
+        document.head.appendChild(themeScript);
     });
     var highlightTheme = 'default'
     var highlightStylesheetLink = document.createElement('link');
